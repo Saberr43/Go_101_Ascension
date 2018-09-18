@@ -2,6 +2,8 @@ package deck
 
 import (
 	"fmt"
+	"math/rand"
+	"time"
 )
 
 //Deck is an array of strings
@@ -24,5 +26,17 @@ func NewDeck() Deck {
 func (d Deck) PrintDeck() {
 	for i, card := range d {
 		fmt.Println(i, card)
+	}
+}
+
+//Shuffle shuffles a deck
+func (d Deck) Shuffle() {
+	source := rand.NewSource(time.Now().UnixNano())
+	r := rand.New(source)
+
+	for i := range d {
+		newPos := r.Intn(len(d) - 1)
+
+		d[i], d[newPos] = d[newPos], d[i]
 	}
 }
