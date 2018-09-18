@@ -1,43 +1,9 @@
 package main
 
-import (
-	"io/ioutil"
-	"strings"
-)
+import "pokerdeck/decks"
 
 func main() {
-	var hello string
-	hello = "hello"
+	deck := deck.NewDeck()
 
-	println(hello)
-
-	//-----------------------------------
-
-	world := "world"
-
-	println(world)
-
-	//-------------------------------------
-
-	strSl := []string{"this", "is", "a", "slice"}
-
-	for _, str := range strSl {
-		print(str + " ")
-	}
-
-	//------------------------------------
-
-	print("\n")
-
-	rsltStr := strings.Join(strSl, " | ")
-
-	println(rsltStr)
-
-	//------------------------------------
-
-	err := ioutil.WriteFile("testWrite.txt", []byte(rsltStr), 0666)
-
-	if err != nil {
-		panic(err)
-	}
+	deck.PrintDeck()
 }
