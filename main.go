@@ -1,11 +1,10 @@
 package main
 
-import "pokerdeck/decks"
+import (
+	"pokerdeck/players"
+)
 
 func main() {
-	deck := deck.NewDeck()
-
-	deck.Shuffle()
-
-	deck.PrintDeck()
+	player := player.Player{Name: "Player 1", Cards: [2]string{"A of Spades", "A of Diamonds"}}
+	print(player.IsCardsPresent())
 }
